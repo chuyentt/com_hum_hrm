@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_CREATED_BY"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_CREATED_BY"  /> 
+
+       <field name="guid" type="text"
+                
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_GUID"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_GUID" 
+                
+                
+                
+            menu_published="0"
+            readonly="true"
+            filter="string"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="lastname" type="text"
+                
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_LASTNAME"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_LASTNAME" 
+                
+                
+                 required="true" 
+            menu_published="0"
+            filter="string"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="firstname" type="text"
+                
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_FIRSTNAME"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_FIRSTNAME" 
+                
+                
+                 required="true" 
+            menu_published="0"
+            filter="string"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="fullname" type="text"
+                
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_FULLNAME"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_FULLNAME" 
+                
+                
+                
+            menu_published="0"
+            readonly="true"
+            filter="string"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="gender" type="list"
+                
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_GENDER"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_GENDER" 
+                 default="male" 
+                
+                 required="true" 
+            multiple="false"
+            option_on="Yes"
+            option_off="Yes">
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+                <option value="other">Khác</option>
+        </field> 
+
+ 
+		<field name="filter_gender" type="list" onchange="this.form.submit();">
+			<option value="">COM_HUMG_HRM_EMPLOYEES_GENDER_FILTER</option>
+			<option value="MALE">Nam</option>
+			<option value="FEMALE">Nữ</option>
+			<option value="OTHER">Khác</option>
+		</field> 
+
+ <field name="department_guid" type="foreignkey" class="inputbox"
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_DEPARTMENT_GUID"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_DEPARTMENT_GUID" input_type="list" table="#__humg_hrm_department" key_field="guid" value_field="title"  required="true"  /> 
+
+       <field name="filter_department_guid" type="sql" class="inputbox"
+            onchange="this.form.submit();"
+            query="SELECT 0 AS `guid`, '- Please select Đơn vị công tác -' AS `title` UNION SELECT `guid`, `title` FROM `#__humg_hrm_department`" key_field="guid" value_field="title"
+             /> 
+
+       <field name="birthdate" type="calendar" class="inputbox"
+        
+        
+         default="0000-00-00" 
+        
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_BIRTHDATE"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_BIRTHDATE" 
+        filter="safehtml" /> 
+
+ <field name="idtype_guid" type="foreignkey" class="inputbox"
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_IDTYPE_GUID"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_IDTYPE_GUID" input_type="list" table="#__humg_hrm_idtype" key_field="guid" value_field="title"  /> 
+
+       <field name="idtype_number" type="text"
+                
+            label="COM_HUMG_HRM_FORM_LBL_EMPLOYEE_IDTYPE_NUMBER"
+            description="COM_HUMG_HRM_FORM_DESC_EMPLOYEE_IDTYPE_NUMBER" 
+                
+                
+                
+            menu_published="0"
+            filter="string"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+        <option value="2">JARCHIVED</option>
+        <option value="-2">JTRASHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>

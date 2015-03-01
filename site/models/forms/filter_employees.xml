@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" hint="COM_HUMG_HRM_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        
+		<field name="gender" type="list" onchange="this.form.submit();">
+		<option value="">COM_HUMG_HRM_EMPLOYEES_GENDER_FILTER</option>
+		<option value="male">COM_HUMG_HRM_EMPLOYEES_GENDER_OPTION_MALE</option>
+		<option value="female">COM_HUMG_HRM_EMPLOYEES_GENDER_OPTION_FEMALE</option>
+		<option value="other">COM_HUMG_HRM_EMPLOYEES_GENDER_OPTION_OTHER</option>
+		</field> 
+
+ <field name="department_guid" type="sql" class="inputbox" onchange="this.form.submit();"
+                                    query="SELECT '' AS `guid`, '- Please select Đơn vị công tác -' AS `title` UNION SELECT `guid`, `title` FROM `#__humg_hrm_department`" key_field="guid" value_field="title"/>
+
+    </fields>
+</form>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" hint="COM_HUMG_HRM_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="employee_guid" type="sql" class="inputbox" onchange="this.form.submit();"
+                                    query="SELECT '' AS `guid`, '- Please select Họ và tên -' AS `fullname` UNION SELECT `guid`, `fullname` FROM `#__humg_hrm_employee`" key_field="guid" value_field="fullname"/>
+
+    </fields>
+</form>

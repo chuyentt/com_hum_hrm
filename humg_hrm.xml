@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_humg_hrm</name>
+    <creationDate>2015-02-17</creationDate>
+    <copyright>Copyright (C) 2015. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Chuyen Trung Tran</author>
+    <authorEmail>chuyentt@gmail.com</authorEmail>
+    <authorUrl>http://www.geomatics.vn</authorUrl>
+    <version>1.0.0</version>
+    <description>HUMG Human Resource Management</description>
+    
+    <scriptfile>script.php</scriptfile>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>humg_hrm.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>assets</folder>
+    </files>
+    <languages folder="languages/site">
+        
+			<language tag="en-GB">en-GB/en-GB.com_humg_hrm.ini</language>
+			<language tag="vi-VN">vi-VN/vi-VN.com_humg_hrm.ini</language>
+    </languages>
+    <administration>
+        <menu img="components/com_humg_hrm/assets/images/s_com_humg_hrm.png" >COM_HUMG_HRM</menu>
+        <submenu>
+            
+			<menu link="option=com_humg_hrm&amp;view=employees" view="employees" img="components/com_humg_hrm/assets/images/s_employees.png" alt="Humg_hrm/Employees">COM_HUMG_HRM_TITLE_EMPLOYEES</menu>
+
+			<menu link="option=com_humg_hrm&amp;view=positions" view="positions" img="components/com_humg_hrm/assets/images/s_positions.png" alt="Humg_hrm/Positions">COM_HUMG_HRM_TITLE_POSITIONS</menu>
+
+			<menu link="option=com_humg_hrm&amp;view=departments" view="departments" img="components/com_humg_hrm/assets/images/s_departments.png" alt="Humg_hrm/Departments">COM_HUMG_HRM_TITLE_DEPARTMENTS</menu>
+
+			<menu link="option=com_humg_hrm&amp;view=positiontypes" view="positiontypes" img="components/com_humg_hrm/assets/images/s_positiontypes.png" alt="Humg_hrm/Positiontypes">COM_HUMG_HRM_TITLE_POSITIONTYPES</menu>
+
+			<menu link="option=com_humg_hrm&amp;view=idtypes" view="idtypes" img="components/com_humg_hrm/assets/images/s_idtypes.png" alt="Humg_hrm/Idtypes">COM_HUMG_HRM_TITLE_IDTYPES</menu>
+
+			<menu link="option=com_humg_hrm&amp;view=contacts" view="contacts" img="components/com_humg_hrm/assets/images/s_contacts.png" alt="Humg_hrm/Contacts">COM_HUMG_HRM_TITLE_CONTACTS</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>humg_hrm.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+            
+			<language tag="en-GB">en-GB/en-GB.com_humg_hrm.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_humg_hrm.sys.ini</language>
+			<language tag="vi-VN">vi-VN/vi-VN.com_humg_hrm.ini</language>
+			<language tag="vi-VN">vi-VN/vi-VN.com_humg_hrm.sys.ini</language>
+        </languages>
+    </administration>
+    <plugins>
+        <plugin group="search" plugin="humg_hrm"/>
+    </plugins>
+    <modules>
+		<module module="mod_humg_hrm" />
+	</modules>
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

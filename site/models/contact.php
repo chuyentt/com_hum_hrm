@@ -76,10 +76,12 @@ class Humg_hrmModelContact extends JModelItem {
         if ($this->_item === null) {
             $this->_item = false;
 
+            $guid = JFactory::getApplication()->input->get('guid');
+            if (isset($guid)) {
+                $id = $this->findId($guid);
+            }
             if (empty($id)) {
                 $id = $this->getState('contact.id');
-                $guid = JFactory::getApplication()->input->get('guid');
-                $id = $this->findId($guid);
             }
 
             // Get a level row instance.

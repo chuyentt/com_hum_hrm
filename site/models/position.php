@@ -47,6 +47,24 @@ class Humg_hrmModelPosition extends JModelItem {
     }
 
     /**
+     * Method to create and execute a SELECT WHERE query.
+     *
+     * @return  JDatabase object
+     *
+     * @since   11.1
+     */
+     function findId($guid) {
+         $db = JFactory::getDbo();
+         $query = $db->getQuery(true);
+         $query->select('id')
+               ->from('`#__humg_hrm_position`')
+               ->where('guid = ' . $db->quote($guid));
+         $db->setQuery($query);
+         $results = $db->loadObject();
+         return $results->id;
+     }
+
+    /**
      * Method to get an ojbect.
      *
      * @param	integer	The id of the object to get.
@@ -57,6 +75,10 @@ class Humg_hrmModelPosition extends JModelItem {
         if ($this->_item === null) {
             $this->_item = false;
 
+            $guid = JFactory::getApplication()->input->get('guid');
+            if (isset($guid)) {
+                $id = $this->findId($guid);
+            }
             if (empty($id)) {
                 $id = $this->getState('position.id');
             }
